@@ -1,11 +1,14 @@
 package poker;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static poker.Card.clubs;
 import static poker.Card.diamonds;
+import static poker.Color.clubs;
+import static poker.Value.two;
 
 import org.junit.Test;
 
@@ -25,5 +28,10 @@ public class CardTest {
 	@Test
 	public void jackIsGreaterThanTen() throws Exception {
 		assertThat(new Card("dj"), is(greaterThan(clubs(10))));
+	}
+	
+	@Test
+	public void equalsAnotherCardOfSameColorAndValue() throws Exception {
+		assertThat(new Card(clubs, two), is(equalTo(clubs(2))));
 	}
 }
