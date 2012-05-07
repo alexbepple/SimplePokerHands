@@ -1,11 +1,13 @@
-package poker;
+package poker.detectors;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static poker.Card.clubs;
+import static poker.core.Card.clubs;
 
 import org.junit.Test;
+
+import poker.detectors.HighCardDetector;
 
 public class HighCardDetectorTest {
 

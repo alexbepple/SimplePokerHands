@@ -1,14 +1,16 @@
-package poker;
+package util;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasEntry;
 import static org.junit.Assert.assertThat;
-import static poker.CollectionUtils.countOccurrences;
+import static util.CollectionUtils.countOccurrences;
 
 import java.util.Arrays;
 
 import org.junit.Test;
+
+import util.CollectionUtils;
 
 public class CollectionUtilsTest {
 

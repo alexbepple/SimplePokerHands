@@ -1,7 +1,10 @@
-package poker;
+package poker.detectors;
 
 import java.util.Collections;
 import java.util.List;
+
+import poker.core.Card;
+import poker.core.CombinationDetector;
 
 public class HighCardDetector implements CombinationDetector {
 

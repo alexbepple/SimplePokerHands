@@ -1,11 +1,11 @@
-package poker;
+package poker.core;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static poker.Value.ten;
-import static poker.Value.two;
-import static poker.Value.valueForShorthand;
-import static poker.Value.valueOf;
+import static poker.core.Value.ten;
+import static poker.core.Value.two;
+import static poker.core.Value.valueForShorthand;
+import static poker.core.Value.valueOf;
 
 import org.junit.Test;
 

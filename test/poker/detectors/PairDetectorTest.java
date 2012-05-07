@@ -1,15 +1,20 @@
-package poker;
+package poker.detectors;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-import static poker.Card.cards;
-import static poker.Card.clubs;
-import static poker.Card.diamonds;
+import static poker.core.Card.cards;
+import static poker.core.Card.clubs;
+import static poker.core.Card.diamonds;
 
 import java.util.List;
 
 import org.junit.Test;
+
+import poker.core.Card;
+
+//What about the order of cards in a pair?
+//What about two pairs?
 
 public class PairDetectorTest {
 

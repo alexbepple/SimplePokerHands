@@ -1,4 +1,4 @@
-package poker;
+package poker.core;
 
 public class NoApplicableDetectorException extends RuntimeException {
 

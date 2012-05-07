@@ -1,12 +1,16 @@
-package poker;
+package poker.detectors;
 
-import static poker.Card.filterByValue;
-import static poker.Card.values;
-import static poker.CollectionUtils.countOccurrences;
-import static poker.CollectionUtils.join;
+import static poker.core.Card.filterByValue;
+import static poker.core.Card.values;
+import static util.CollectionUtils.countOccurrences;
+import static util.CollectionUtils.join;
 
 import java.util.List;
 import java.util.Map;
+
+import poker.core.Card;
+import poker.core.CombinationDetector;
+import poker.core.Value;
 
 public class PairDetector implements CombinationDetector {
 

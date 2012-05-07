@@ -1,16 +1,18 @@
-package poker;
+package poker.core;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-import static poker.Card.clubs;
-import static poker.Card.diamonds;
-import static poker.Color.clubs;
-import static poker.Value.two;
+import static poker.core.Card.clubs;
+import static poker.core.Card.diamonds;
+import static poker.core.Color.clubs;
+import static poker.core.Value.two;
 
 import org.junit.Test;
+
+import poker.core.Card;
 
 public class CardTest {
 

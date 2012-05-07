@@ -1,4 +1,4 @@
-package poker;
+package poker.core;
 
 import java.util.List;
 

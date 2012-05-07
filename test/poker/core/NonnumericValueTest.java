@@ -1,9 +1,9 @@
-package poker;
+package poker.core;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static poker.Value.jack;
-import static poker.Value.valueForShorthand;
+import static poker.core.Value.jack;
+import static poker.core.Value.valueForShorthand;
 
 import org.junit.Test;
 

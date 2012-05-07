@@ -1,4 +1,4 @@
-package poker;
+package poker.core;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
@@ -12,8 +12,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-// What about the order of cards in a pair?
-// What about two pairs?
 public class HandTest {
 	
 	@Test
