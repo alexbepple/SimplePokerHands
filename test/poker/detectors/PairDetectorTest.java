@@ -13,7 +13,6 @@ import org.junit.Test;
 
 import poker.core.Card;
 
-//What about the order of cards in a pair?
 //What about two pairs?
 
 public class PairDetectorTest {
@@ -34,6 +33,5 @@ public class PairDetectorTest {
 		assertTrue(detector.appliesTo(hand));
 		assertThat(detector.findHighest(hand), is(containedPair));
 	}
-	
 
 }
