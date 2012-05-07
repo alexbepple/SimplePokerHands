@@ -13,11 +13,15 @@ import poker.core.Hand;
 import poker.detectors.HighCardDetector;
 import poker.detectors.PairDetector;
 
-public class FunctionalTest {
+public class SimplePokerHandDetectorTest {
 
 	@Test
-	public void findsPairInSetOfThreeCards() throws Exception {
-		assertThat(mostValuableCombinationIn("s2 h2 s3"), is("Pair: s2, h2"));
+	public void findsHighCard() throws Exception {
+		assertThat(mostValuableCombinationIn("s2 h3 d7 h4 s5"), is("High card: d7"));
+	}
+	@Test
+	public void findsPair() throws Exception {
+		assertThat(mostValuableCombinationIn("s2 h2 s3 s4 s5"), is("Pair: s2, h2"));
 	}
 	
 	private String mostValuableCombinationIn(String handAsString) {
