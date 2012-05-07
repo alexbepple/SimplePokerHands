@@ -1,6 +1,7 @@
 package poker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Card implements Comparable<Card> {
@@ -58,6 +59,10 @@ public class Card implements Comparable<Card> {
 			return false;
 		Card other = (Card) obj;
 		return color == other.color && value == other.value;
+	}
+
+	public static List<Card> cards(Card... cards) {
+		return Arrays.asList(cards);
 	}
 
 	public static List<Card> filterByValue(List<Card> cards, Value value) {

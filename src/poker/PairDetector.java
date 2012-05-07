@@ -8,13 +8,13 @@ import static poker.CollectionUtils.join;
 import java.util.List;
 import java.util.Map;
 
-public class Pair {
+public class PairDetector {
 
-	public static boolean isIn(List<Card> cards) {
+	public boolean appliesTo(List<Card> cards) {
 		return countOccurrences(values(cards)).containsValue(2);
 	}
 
-	private static Value valueOfPair(List<Card> cards) {
+	private Value valueOfPair(List<Card> cards) {
 		Map<Value, Integer> occurrences = countOccurrences(values(cards));
 		Value pairValue = null;
 		for (Value value : occurrences.keySet()) {
@@ -24,11 +24,11 @@ public class Pair {
 		return pairValue;
 	}
 
-	public static List<Card> findHighest(List<Card> cards) {
+	public List<Card> findHighest(List<Card> cards) {
 		return filterByValue(cards, valueOfPair(cards));
 	}
 
-	public static String describeHighest(List<Card> cards) {
+	public String describeHighest(List<Card> cards) {
 		return "Pair: " + join(findHighest(cards), ", ");
 	}
 

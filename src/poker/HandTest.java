@@ -12,11 +12,6 @@ import org.junit.Test;
 // What about the order of cards in a pair?
 // What about two pairs?
 public class HandTest {
-
-	@Test
-	public void findsPairInSetOfTwoCards() throws Exception {
-		assertThat(mostValuableCombinationIn("s2 h2"), is("Pair: s2, h2"));
-	}
 	
 	@Test
 	public void findsPairInSetOfThreeCards() throws Exception {

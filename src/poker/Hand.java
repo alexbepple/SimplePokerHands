@@ -23,8 +23,9 @@ public class Hand {
 	
 	public String mostValuableCombination() {
 		HighCardDetector highCardDetector = new HighCardDetector();
-		if (Pair.isIn(cards)) {
-			return Pair.describeHighest(cards);
+		PairDetector pairDetector = new PairDetector();
+		if (pairDetector.appliesTo(cards)) {
+			return pairDetector.describeHighest(cards);
 		}
 		return highCardDetector.describeHighest(cards);
 	}
