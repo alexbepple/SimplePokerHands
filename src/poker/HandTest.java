@@ -33,6 +33,11 @@ public class HandTest {
 		assertThat(mostValuableCombinationIn("s2 h2"), is("Pair: s2, h2"));
 	}
 	
+	@Test
+	public void findsPairInSetOfThreeCards() throws Exception {
+		assertThat(mostValuableCombinationIn("s2 h2 s3"), is("Pair: s2, h2"));
+	}
+	
 	private String mostValuableCombinationIn(String handAsString) {
 		return new Hand(handAsString).mostValuableCombination();
 	}

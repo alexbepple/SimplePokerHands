@@ -1,7 +1,5 @@
 package poker;
 
-import static poker.CollectionUtils.countOccurrences;
-import static poker.CollectionUtils.join;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,24 +23,17 @@ public class Hand {
 	}
 	
 	public String mostValuableCombination() {
-		if (containsPair(cards))
-			return "Pair: " + join(cards, ", ");
-		return "High card: " + highCard();
-	}
-
-	private boolean containsPair(List<Card> cards) {
-		return countOccurrences(values(cards)).containsValue(2);
-	}
-
-	private List<Value> values(List<Card> cards) {
-		List<Value> values = new ArrayList<Value>();
-		for (Card card: cards) {
-			values.add(card.value());
+		if (Pair.isIn(cards)) {
+			return Pair.describeHighest(cards);
 		}
-		return values;
+		return describeHighCard(cards);
 	}
 
-	private Card highCard() {
+	private String describeHighCard(List<Card> cards) {
+		return "High card: " + highCard(cards);
+	}
+
+	private Card highCard(List<Card> cards) {
 		return Collections.max(cards);
 	}
 
