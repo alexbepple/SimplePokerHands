@@ -20,21 +20,21 @@ public class HandTest {
 	}
 	
 	@Test
-	public void usesFirstApplicableDetectorInOrderToFindMostValuableCombination() throws Exception {
-		List<CombinationDetector> detectors = 
+	public void usesFirstApplicableDetectorInOrderToFindHighestHandRank() throws Exception {
+		List<HandRankDetector> detectors = 
 				asList(applicableDetector("foo"), applicableDetector("bar"));
-		assertThat(new Hand("", detectors).mostValuableCombination(), is("foo"));
+		assertThat(new Hand("", detectors).highestHandRank(), is("foo"));
 	}
 	
-	@Test(expected = NoApplicableDetectorException.class)
+	@Test(expected = NoApplicableHandRankException.class)
 	public void indicatesWhenNoApplicableDetectorFound() throws Exception {
-		new Hand("", Collections.<CombinationDetector> emptyList()).mostValuableCombination();
+		new Hand("", Collections.<HandRankDetector> emptyList()).highestHandRank();
 	}
 
-	private CombinationDetector applicableDetector(String combinationDescription) {
-		CombinationDetector detector = mock(CombinationDetector.class);
+	private HandRankDetector applicableDetector(String rankDescription) {
+		HandRankDetector detector = mock(HandRankDetector.class);
 		when(detector.appliesTo(anyListOf(Card.class))).thenReturn(true);
-		when(detector.describeHighest(anyListOf(Card.class))).thenReturn(combinationDescription);
+		when(detector.describeHandRank(anyListOf(Card.class))).thenReturn(rankDescription);
 		return detector;
 	}
 }

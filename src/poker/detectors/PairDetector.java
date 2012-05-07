@@ -1,7 +1,7 @@
 package poker.detectors;
 
-import static poker.core.Cards.filterByValue;
-import static poker.core.Cards.values;
+import static poker.core.Cards.filterByRank;
+import static poker.core.Cards.ranks;
 import static util.CollectionUtils.countOccurrences;
 import static util.CollectionUtils.join;
 
@@ -9,32 +9,32 @@ import java.util.List;
 import java.util.Map;
 
 import poker.core.Card;
-import poker.core.CombinationDetector;
-import poker.core.Value;
+import poker.core.HandRankDetector;
+import poker.core.Rank;
 
-public class PairDetector implements CombinationDetector {
+public class PairDetector implements HandRankDetector {
 
 	@Override
 	public boolean appliesTo(List<Card> cards) {
-		return countOccurrences(values(cards)).containsValue(2);
+		return countOccurrences(ranks(cards)).containsValue(2);
 	}
 
-	private Value valueOfPair(List<Card> cards) {
-		Map<Value, Integer> occurrences = countOccurrences(values(cards));
-		for (Value value : occurrences.keySet()) {
-			if (occurrences.get(value) == 2)
-				return value;
+	private Rank rankOfPair(List<Card> cards) {
+		Map<Rank, Integer> occurrences = countOccurrences(ranks(cards));
+		for (Rank rank : occurrences.keySet()) {
+			if (occurrences.get(rank) == 2)
+				return rank;
 		}
 		return null;
 	}
 
-	public List<Card> findHighest(List<Card> cards) {
-		return filterByValue(cards, valueOfPair(cards));
+	public List<Card> findPair(List<Card> cards) {
+		return filterByRank(cards, rankOfPair(cards));
 	}
 
 	@Override
-	public String describeHighest(List<Card> cards) {
-		return "Pair: " + join(findHighest(cards), ", ");
+	public String describeHandRank(List<Card> cards) {
+		return "Pair: " + join(findPair(cards), ", ");
 	}
 
 }

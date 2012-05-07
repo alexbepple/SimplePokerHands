@@ -2,14 +2,14 @@ package poker.core;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static poker.core.Value.ten;
-import static poker.core.Value.two;
-import static poker.core.Value.valueForShorthand;
-import static poker.core.Value.valueOf;
+import static poker.core.Rank.ten;
+import static poker.core.Rank.two;
+import static poker.core.Rank.valueForShorthand;
+import static poker.core.Rank.valueOf;
 
 import org.junit.Test;
 
-public class NumericValueTest {
+public class NumericRankTest {
 
 	@Test
 	public void canBeCreatedFromNumber() throws Exception {

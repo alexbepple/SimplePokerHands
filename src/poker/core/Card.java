@@ -3,46 +3,46 @@ package poker.core;
 
 public class Card implements Comparable<Card> {
 
-	private Value value;
-	private Color color;
+	private Rank rank;
+	private Suit suit;
 
 	public Card(String representation) {
-		color = Color.valueForShorthand(representation.substring(0, 1));
-		value = Value.valueForShorthand(representation.substring(1));
+		suit = Suit.valueForShorthand(representation.substring(0, 1));
+		rank = Rank.valueForShorthand(representation.substring(1));
 	}
 	
-	public Card(Color color, Value value) {
-		this.color = color;
-		this.value = value;
+	public Card(Suit suit, Rank rank) {
+		this.suit = suit;
+		this.rank = rank;
 	}
 	
-	public Value value() {
-		return this.value;
+	public Rank rank() {
+		return this.rank;
 	}
 	
 	@Override
 	public String toString() {
-		return "" + color.shorthand() + value.shorthand();
+		return "" + suit.shorthand() + rank.shorthand();
 	}
 	
 	public int compareTo(Card other) {
-		return this.value.compareTo(other.value);
+		return this.rank.compareTo(other.rank);
 	}
 
-	public static Card diamonds(int numericValue) {
-		return new Card(Color.diamonds, Value.valueOf(numericValue));
+	public static Card diamonds(int numericRank) {
+		return new Card(Suit.diamonds, Rank.valueOf(numericRank));
 	}
 
-	public static Card clubs(int numericValue) {
-		return new Card(Color.clubs, Value.valueOf(numericValue));
+	public static Card clubs(int numericRank) {
+		return new Card(Suit.clubs, Rank.valueOf(numericRank));
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((color == null) ? 0 : color.hashCode());
-		result = prime * result + ((value == null) ? 0 : value.hashCode());
+		result = prime * result + ((suit == null) ? 0 : suit.hashCode());
+		result = prime * result + ((rank == null) ? 0 : rank.hashCode());
 		return result;
 	}
 
@@ -55,6 +55,6 @@ public class Card implements Comparable<Card> {
 		if (getClass() != obj.getClass())
 			return false;
 		Card other = (Card) obj;
-		return color == other.color && value == other.value;
+		return suit == other.suit && rank == other.rank;
 	}
 }

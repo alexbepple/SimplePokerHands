@@ -12,7 +12,7 @@ import poker.detectors.HighCardDetector;
 public class HighCardDetectorTest {
 
 	@Test
-	public void findsCardWithHighestValue() throws Exception {
+	public void findsCardWithHighestRank() throws Exception {
 		assertThat(HighCardDetector.highCard(asList(clubs(6), clubs(7), clubs(5))), is(clubs(7)));
 	}
 }

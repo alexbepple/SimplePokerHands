@@ -1,16 +1,16 @@
 package poker.core;
 
-public enum Value {
+public enum Rank {
 
 	two, three, four, five, six, seven, eight, nine, ten, jack, queen, king, ace;
 	
-	public static Value valueOf(int numericValue) {
+	public static Rank valueOf(int numericValue) {
 		return values()[numericValue-2];
 	}
 	
-	public static Value valueForShorthand(String shorthand) {
-		for (Value value: values()) {
-			if (value.name().startsWith(shorthand)) return value;
+	public static Rank valueForShorthand(String shorthand) {
+		for (Rank rank: values()) {
+			if (rank.name().startsWith(shorthand)) return rank;
 		}
 		return valueOf(Integer.valueOf(shorthand));
 	}

@@ -5,12 +5,12 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import poker.core.Color;
+import poker.core.Suit;
 
-public class ColorTest {
+public class SuitTest {
 
 	@Test
 	public void canBeCreatedFromShorthand() throws Exception {
-		assertThat(Color.valueForShorthand("s"), is(Color.spades));
+		assertThat(Suit.valueForShorthand("s"), is(Suit.spades));
 	}
 }

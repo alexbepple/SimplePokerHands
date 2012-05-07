@@ -7,11 +7,11 @@ import java.util.List;
 public class Hand {
 
 	private List<Card> cards;
-	private List<CombinationDetector> combinationDetectors;
+	private List<HandRankDetector> handRankDetectors;
 
-	public Hand(String handAsString, List<CombinationDetector> combinationDetectors) {
+	public Hand(String handAsString, List<HandRankDetector> handRankDetectors) {
 		this.cards = cardsFrom(handAsString);
-		this.combinationDetectors = combinationDetectors;
+		this.handRankDetectors = handRankDetectors;
 	}
 
 	private static List<Card> cardsFrom(String hand) {
@@ -25,12 +25,12 @@ public class Hand {
 		return cards;
 	}
 	
-	public String mostValuableCombination() {
-		for (CombinationDetector combinationDetector : combinationDetectors) {
-			if (combinationDetector.appliesTo(cards))
-				return combinationDetector.describeHighest(cards);
+	public String highestHandRank() {
+		for (HandRankDetector detector : handRankDetectors) {
+			if (detector.appliesTo(cards))
+				return detector.describeHandRank(cards);
 		}
-		throw new NoApplicableDetectorException();
+		throw new NoApplicableHandRankException();
 	}
 
 }

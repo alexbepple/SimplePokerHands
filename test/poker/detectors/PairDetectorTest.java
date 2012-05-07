@@ -21,7 +21,7 @@ public class PairDetectorTest {
 	public void findsPairInSetOfTwoCards() throws Exception {
 		List<Card> pair = cards(clubs(2), diamonds(2));
 		assertTrue(detector.appliesTo(pair));
-		assertThat(detector.findHighest(pair), is(pair));
+		assertThat(detector.findPair(pair), is(pair));
 	}
 	
 	@Test
@@ -29,7 +29,7 @@ public class PairDetectorTest {
 		List<Card> hand = cards(clubs(2), diamonds(2), clubs(3));
 		List<Card> containedPair = cards(clubs(2), diamonds(2));
 		assertTrue(detector.appliesTo(hand));
-		assertThat(detector.findHighest(hand), is(containedPair));
+		assertThat(detector.findPair(hand), is(containedPair));
 	}
 
 }

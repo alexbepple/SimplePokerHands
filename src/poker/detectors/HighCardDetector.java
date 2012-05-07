@@ -4,15 +4,15 @@ import java.util.Collections;
 import java.util.List;
 
 import poker.core.Card;
-import poker.core.CombinationDetector;
+import poker.core.HandRankDetector;
 
-public class HighCardDetector implements CombinationDetector {
+public class HighCardDetector implements HandRankDetector {
 
 	public static Card highCard(List<Card> cards) {
 		return Collections.max(cards);
 	}
 
-	public String describeHighest(List<Card> cards) {
+	public String describeHandRank(List<Card> cards) {
 		return "High card: " + HighCardDetector.highCard(cards);
 	}
 

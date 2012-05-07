@@ -2,12 +2,12 @@ package poker.core;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static poker.core.Value.jack;
-import static poker.core.Value.valueForShorthand;
+import static poker.core.Rank.jack;
+import static poker.core.Rank.valueForShorthand;
 
 import org.junit.Test;
 
-public class NonnumericValueTest {
+public class NonnumericRankTest {
 
 	@Test
 	public void canBeCreatedFromShorthand() throws Exception {
