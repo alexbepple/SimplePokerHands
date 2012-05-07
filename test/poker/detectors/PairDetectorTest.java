@@ -13,8 +13,6 @@ import org.junit.Test;
 
 import poker.core.Card;
 
-//What about two pairs?
-
 public class PairDetectorTest {
 
 	private PairDetector detector = new PairDetector();
