@@ -9,7 +9,7 @@ import static poker.Value.valueOf;
 
 import org.junit.Test;
 
-public class NumericValue {
+public class NumericValueTest {
 
 	@Test
 	public void canBeCreatedFromNumber() throws Exception {
