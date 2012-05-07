@@ -8,6 +8,9 @@ import org.junit.Test;
 // Smells:
 // shorthands for cards
 // repetition of "High card: "
+
+// What about the order of cards in a pair?
+// What about two pairs?
 public class HandTest {
 
 	@Test

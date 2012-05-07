@@ -1,23 +1,23 @@
 package poker;
 
-import static java.util.Arrays.asList;
+import static poker.CollectionUtils.countOccurrences;
 import static poker.CollectionUtils.join;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class Hand {
 
-	public Set<Card> cards;
+	public List<Card> cards;
 
 	public Hand(String handAsString) {
 		cards = cardsFrom(handAsString);
 	}
 
-	public static Set<Card> cardsFrom(String hand) {
+	private static List<Card> cardsFrom(String hand) {
 		String[] cardsAsStrings = hand.split(" ");
-		Set<Card> cards = new HashSet<Card>();
+		List<Card> cards = new ArrayList<Card>();
 		for (String cardAsString: cardsAsStrings) {
 			cards.add(new Card(cardAsString));
 		}
@@ -25,9 +25,21 @@ public class Hand {
 	}
 	
 	public String mostValuableCombination() {
-		if (cards.contains(new Card("s2")))
-			return "Pair: " + join(asList("s2", "h2"), ", ");
+		if (containsPair(cards))
+			return "Pair: " + join(cards, ", ");
 		return "High card: " + highCard();
+	}
+
+	private boolean containsPair(List<Card> cards) {
+		return countOccurrences(values(cards)).containsValue(2);
+	}
+
+	private List<Value> values(List<Card> cards) {
+		List<Value> values = new ArrayList<Value>();
+		for (Card card: cards) {
+			values.add(card.value());
+		}
+		return values;
 	}
 
 	private Card highCard() {

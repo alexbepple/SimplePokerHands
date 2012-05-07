@@ -15,6 +15,10 @@ public class Card implements Comparable<Card> {
 		this.value = value;
 	}
 	
+	public Value value() {
+		return this.value;
+	}
+	
 	@Override
 	public String toString() {
 		return "" + color.shorthand() + value.shorthand();
