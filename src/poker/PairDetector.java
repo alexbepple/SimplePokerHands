@@ -8,8 +8,9 @@ import static poker.CollectionUtils.join;
 import java.util.List;
 import java.util.Map;
 
-public class PairDetector {
+public class PairDetector implements CombinationDetector {
 
+	@Override
 	public boolean appliesTo(List<Card> cards) {
 		return countOccurrences(values(cards)).containsValue(2);
 	}
@@ -28,6 +29,7 @@ public class PairDetector {
 		return filterByValue(cards, valueOfPair(cards));
 	}
 
+	@Override
 	public String describeHighest(List<Card> cards) {
 		return "Pair: " + join(findHighest(cards), ", ");
 	}

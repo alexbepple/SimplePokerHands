@@ -6,13 +6,17 @@ import java.util.List;
 
 public class Hand {
 
-	public List<Card> cards;
+	private List<Card> cards;
+	private List<CombinationDetector> combinationDetectors;
 
-	public Hand(String handAsString) {
-		cards = cardsFrom(handAsString);
+	public Hand(String handAsString, List<CombinationDetector> combinationDetectors) {
+		this.cards = cardsFrom(handAsString);
+		this.combinationDetectors = combinationDetectors;
 	}
 
 	private static List<Card> cardsFrom(String hand) {
+		if ("".equals(hand)) return new ArrayList<Card>();
+		
 		String[] cardsAsStrings = hand.split(" ");
 		List<Card> cards = new ArrayList<Card>();
 		for (String cardAsString: cardsAsStrings) {
@@ -22,12 +26,11 @@ public class Hand {
 	}
 	
 	public String mostValuableCombination() {
-		HighCardDetector highCardDetector = new HighCardDetector();
-		PairDetector pairDetector = new PairDetector();
-		if (pairDetector.appliesTo(cards)) {
-			return pairDetector.describeHighest(cards);
+		for (CombinationDetector combinationDetector : combinationDetectors) {
+			if (combinationDetector.appliesTo(cards))
+				return combinationDetector.describeHighest(cards);
 		}
-		return highCardDetector.describeHighest(cards);
+		throw new NoApplicableDetectorException();
 	}
 
 }

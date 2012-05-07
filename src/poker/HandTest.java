@@ -1,24 +1,42 @@
 package poker;
 
+import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.anyListOf;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.util.Collections;
+import java.util.List;
 
 import org.junit.Test;
-
-// Smells:
-// shorthands for cards
-// repetition of "High card: "
 
 // What about the order of cards in a pair?
 // What about two pairs?
 public class HandTest {
 	
 	@Test
-	public void findsPairInSetOfThreeCards() throws Exception {
-		assertThat(mostValuableCombinationIn("s2 h2 s3"), is("Pair: s2, h2"));
+	public void canBeEmpty() throws Exception {
+		new Hand("", null);
 	}
 	
-	private String mostValuableCombinationIn(String handAsString) {
-		return new Hand(handAsString).mostValuableCombination();
+	@Test
+	public void usesFirstApplicableDetectorInOrderToFindMostValuableCombination() throws Exception {
+		List<CombinationDetector> detectors = 
+				asList(applicableDetector("foo"), applicableDetector("bar"));
+		assertThat(new Hand("", detectors).mostValuableCombination(), is("foo"));
+	}
+	
+	@Test(expected = NoApplicableDetectorException.class)
+	public void indicatesWhenNoApplicableDetectorFound() throws Exception {
+		new Hand("", Collections.<CombinationDetector> emptyList()).mostValuableCombination();
+	}
+
+	private CombinationDetector applicableDetector(String combinationDescription) {
+		CombinationDetector detector = mock(CombinationDetector.class);
+		when(detector.appliesTo(anyListOf(Card.class))).thenReturn(true);
+		when(detector.describeHighest(anyListOf(Card.class))).thenReturn(combinationDescription);
+		return detector;
 	}
 }
