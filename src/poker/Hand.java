@@ -2,7 +2,6 @@ package poker;
 
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Hand {
@@ -23,18 +22,11 @@ public class Hand {
 	}
 	
 	public String mostValuableCombination() {
+		HighCardDetector highCardDetector = new HighCardDetector();
 		if (Pair.isIn(cards)) {
 			return Pair.describeHighest(cards);
 		}
-		return describeHighCard(cards);
-	}
-
-	private String describeHighCard(List<Card> cards) {
-		return "High card: " + highCard(cards);
-	}
-
-	private Card highCard(List<Card> cards) {
-		return Collections.max(cards);
+		return highCardDetector.describeHighest(cards);
 	}
 
 }
