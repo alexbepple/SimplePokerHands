@@ -3,9 +3,9 @@ package poker.detectors;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-import static poker.core.Card.cards;
 import static poker.core.Card.clubs;
 import static poker.core.Card.diamonds;
+import static poker.core.Cards.cards;
 
 import java.util.List;
 

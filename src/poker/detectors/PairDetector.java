@@ -1,7 +1,6 @@
 package poker.detectors;
 
-import static poker.core.Card.filterByValue;
-import static poker.core.Card.values;
+import static poker.core.Cards.values;
 import static util.CollectionUtils.countOccurrences;
 import static util.CollectionUtils.join;
 
@@ -9,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import poker.core.Card;
+import poker.core.Cards;
 import poker.core.CombinationDetector;
 import poker.core.Value;
 
@@ -30,7 +30,7 @@ public class PairDetector implements CombinationDetector {
 	}
 
 	public List<Card> findHighest(List<Card> cards) {
-		return filterByValue(cards, valueOfPair(cards));
+		return Cards.filterByValue(cards, valueOfPair(cards));
 	}
 
 	@Override
